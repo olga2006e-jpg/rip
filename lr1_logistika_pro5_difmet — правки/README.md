@@ -1,0 +1,30 @@
+# Логистика.Про
+
+Учебное FastAPI + Jinja2 приложение с PostgreSQL, SQLAlchemy и Alembic.
+
+## Маршруты
+
+**GET:**
+- `/` — лента вертикальных видео (только `published` услуги);
+- `/add` — форма создания черновика или публикации существующего;
+- `/catalog` — каталог транспорта с фильтром по тарифу.
+
+**POST:**
+- `/add` — создание черновика услуги (ORM);
+- `/publish/{id}` — публикация черновика (ORM);
+- `/transport/{id}/delete` — логическое удаление через `UPDATE` (Raw SQL).
+
+## Стек
+
+- FastAPI + Jinja2
+- PostgreSQL 15 (Docker)
+- SQLAlchemy 2.0 (async)
+- Alembic (миграции)
+- asyncpg
+
+## Запуск
+
+### 1. Запустить PostgreSQL
+
+```bash
+docker-compose up -d
